@@ -15,6 +15,7 @@ If you use hokuyo laser,you should install this driven:
 ```
 sudo apt-get install ros-kinetic-driver-base
 ```
+
 2.Install cartorgrapher:
 -----------------
 reference:http://www.cnblogs.com/wenhust/p/6047258.html
@@ -23,8 +24,10 @@ reference:http://www.cnblogs.com/wenhust/p/6047258.html
 -----------------
 
 reference:https://blog.csdn.net/wilylcyu/article/details/52051964
+
 4.Gmapping and navigation
 ------------------
+
 cartorgrapher slam:
 ```
 roslaunch test_slam cartorgrapher.launch

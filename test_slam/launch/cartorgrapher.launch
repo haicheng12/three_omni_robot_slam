@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+
+  <master auto="start"/>
+  <param name="/use_sim_time" value="false" />
+
+  <!-- Start the robot controller -->
+  <node name="base_controller" pkg="test_slam" type="base_controller" output="screen"/>
+
+  <!-- Start teleop controll-->
+  <node name="teleop_control" pkg="test_slam" type="teleop_control" output="screen"/>
+
+  <node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
+  
+    <!-- Starts up faster, but timestamps will be inaccurate. --> 
+    <param name="calibrate_time" type="bool" value="false"/> 
+    
+    <!-- Set the port to connect to here -->
+    <param name="port" type="string" value="/dev/ttyACM0"/> 
+  
+    <param name="intensity" type="bool" value="false"/>
+  </node>
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename demo_hokuyo.lua"
+      output="screen">
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d $(find cartographer_ros)/configuration_files/demo_hokuyo.rviz" />
+
+</launch>
+

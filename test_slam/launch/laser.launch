@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Run Linorobot compatible laser drivers. Takes reference from env var LINOLIDAR. ie. export LINOLIDAR=xv11 -->
+    <!--node name="flashgo_node" pkg="flashgo" type="flashgo_node" output="screen"/-->
+  <node name="hokuyo" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen">
+  
+    <param name="calibrate_time" type="bool" value="false"/> 
+    
+    <param name="port" type="string" value="/dev/ttyACM0"/> 
+  
+    <param name="intensity" type="bool" value="false"/>
+  </node>
+
+    <!-- Publish static transform of the laser. Define your sensor offset here -->
+  <node pkg="tf" type="static_transform_publisher" name ="base_footprint_to_laser" args="0.09 0 0.12 0 0 0 base_footprint laser 100" />
+
+</launch>
+
+

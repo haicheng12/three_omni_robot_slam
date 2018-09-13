@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+  <master auto="start"/>
+  <param name="use_sim_time" value="false" />
+
+  <!-- Start the robot controller -->
+  <node name="base_controller" pkg="test_slam" type="base_controller" output="screen"/>
+
+  <!-- Start teleop controll-->
+  <node name="teleop_control" pkg="test_slam" type="teleop_control" output="screen"/>
+
+</launch>

@@ -25,6 +25,16 @@ reference:http://www.cnblogs.com/wenhust/p/6047258.html
 
 reference:https://blog.csdn.net/wilylcyu/article/details/52051964
 
+and you can bind serial port end number,
+reference:https://blog.csdn.net/xiangbin099/article/details/79676053
+and use this order to let it take effect:
+```
+sudo udevadm trigger
+
+ls -l /dev/
+```
+
+
 4.Gmapping and navigation
 ------------------
 

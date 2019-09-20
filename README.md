@@ -58,8 +58,8 @@ sudo gedit start.sh
 ```
 #! /bin/bash  
 source /opt/ros/kinetic/setup.sh 
-source /home/a/catkin_ws/devel/setup.bash 
-roslaunch wheelchair bt_wheelchair.launch
+source /home/cheng/catkin_ws/devel/setup.bash 
+roslaunch xxx xxx.launch
  
 exit 0
 

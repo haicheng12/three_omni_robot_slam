@@ -51,3 +51,20 @@ Next,you can use these commands to let the robot navigate automatically:
 roslaunch test_slam navigation.launch
 roslaunch test_slam navigation_rviz.launch
 ```
+
+5.Let the .sh file start when pc start:
+-----------------
+sudo gedit start.sh
+```
+#! /bin/bash  
+source /opt/ros/kinetic/setup.sh 
+source /home/a/catkin_ws/devel/setup.bash 
+roslaunch wheelchair bt_wheelchair.launch
+ 
+exit 0
+
+```
+and then add:
+gnome-terminal -x  /home/cheng/start.sh
+
+to the starting up.
